@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manya Patel — Creative Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --mauve:#736377;
+  --mauve-dark:#5a4d5e;
+  --mauve-deep:#3d3340;
+  --mauve-mid:#9a8a9e;
+  --silver:#c8c8c8;
+  --silver-dark:#8a8a8a;
+  --cream:#faf9f7;
+  --text:#2a2a2a;
+  --text-soft:#6a6a6a;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:var(--text);background:var(--cream)}
+
+/* NAV */
+nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:28px 56px;border-bottom:0.5px solid var(--silver);
+  position:sticky;top:0;background:var(--cream);z-index:100;
+}
+.nav-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:2px;color:var(--mauve);text-decoration:none}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;color:var(--text-soft);transition:color .2s}
+.nav-links a:hover{color:var(--mauve)}
+.nav-resume{
+  font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  border:0.5px solid var(--mauve);color:var(--mauve);
+  padding:8px 20px;text-decoration:none;transition:all .2s;
+}
+.nav-resume:hover{background:var(--mauve);color:#fff}
+
+/* HERO */
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;min-height:88vh;
+  border-bottom:0.5px solid var(--silver);
+}
+.hero-text{
+  padding:80px 56px;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:0.5px solid var(--silver);
+}
+.hero-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mauve-mid);margin-bottom:24px}
+.hero-name{
+  font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;
+  line-height:1.0;color:var(--text);margin-bottom:6px;
+}
+.hero-name em{color:var(--mauve);font-style:italic}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;font-style:italic;
+  color:var(--text-soft);margin-bottom:36px;
+}
+.hero-desc{font-size:14px;line-height:1.9;color:var(--text-soft);max-width:420px;margin-bottom:40px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:44px}
+.tag{
+  font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+  border:0.5px solid var(--mauve);color:var(--mauve);
+  padding:7px 16px;
+}
+.hero-cta{display:flex;gap:16px;align-items:center}
+.btn-primary{
+  font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  background:var(--mauve);color:#fff;border:none;
+  padding:15px 36px;cursor:pointer;text-decoration:none;display:inline-block;
+  transition:background .2s;
+}
+.btn-primary:hover{background:var(--mauve-dark)}
+.btn-ghost{
+  font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  background:transparent;color:var(--mauve);border:0.5px solid var(--mauve);
+  padding:15px 36px;cursor:pointer;text-decoration:none;display:inline-block;
+  transition:all .2s;
+}
+.btn-ghost:hover{background:var(--mauve);color:#fff}
+
+.hero-image{
+  background:#ede5ee;
+  display:flex;align-items:flex-end;justify-content:center;
+  position:relative;overflow:hidden;padding-top:60px;
+}
+.hero-image img{
+  width:100%;max-width:380px;height:auto;
+  object-fit:cover;object-position:top center;
+  display:block;
+}
+.hero-image-placeholder{
+  width:280px;height:400px;
+  border:0.5px solid var(--mauve-mid);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:16px;color:var(--mauve-mid);margin-bottom:0;
+}
+.hero-image-placeholder::before{
+  content:'';position:absolute;inset:24px;
+  border:0.5px solid rgba(115,99,119,0.3);pointer-events:none;
+}
+.hero-image-placeholder i{font-size:48px}
+.hero-image-placeholder p{font-size:10px;letter-spacing:2px;text-transform:uppercase;text-align:center;padding:0 20px;line-height:1.7}
+
+/* SECTIONS */
+.section{padding:80px 56px;border-bottom:0.5px solid var(--silver)}
+.section-header{display:flex;align-items:baseline;gap:20px;margin-bottom:60px}
+.section-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:var(--silver);line-height:1}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--text)}
+.section-title em{color:var(--mauve);font-style:italic}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.project-card{
+  padding:44px;border:0.5px solid var(--silver);
+  position:relative;transition:background .25s;
+  text-decoration:none;color:inherit;display:block;
+}
+.project-card:hover{background:#ede5ee}
+.project-card.featured{
+  grid-column:span 2;
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  padding:0;
+}
+.project-featured-img{
+  background:var(--mauve);
+  min-height:320px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.pearl-cluster{position:relative;width:160px;height:180px}
+.pearl{
+  border-radius:50%;position:absolute;
+  border:0.5px solid rgba(255,255,255,0.35);
+  background:rgba(255,255,255,0.1);
+}
+.project-featured-content{padding:48px;border:0.5px solid var(--silver);display:flex;flex-direction:column;justify-content:center}
+.project-badge{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mauve);margin-bottom:16px;display:block}
+.project-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:var(--text);margin-bottom:14px;line-height:1.2}
+.project-desc{font-size:13px;line-height:1.9;color:var(--text-soft);margin-bottom:28px}
+.project-tags{display:flex;flex-wrap:wrap;gap:8px}
+.project-tag{font-size:10px;letter-spacing:1px;text-transform:uppercase;background:#ede5ee;color:var(--mauve-dark);padding:5px 12px}
+.project-arrow{
+  position:absolute;bottom:20px;right:20px;
+  width:34px;height:34px;border:0.5px solid var(--silver);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--mauve);font-size:15px;transition:all .2s;
+}
+.project-card:hover .project-arrow{background:var(--mauve);color:#fff;border-color:var(--mauve)}
+
+/* PROJECT NOTE */
+.project-note{
+  padding:20px 28px;background:#ede5ee;
+  font-size:12px;line-height:1.7;color:var(--mauve-dark);
+  border-left:2px solid var(--mauve);margin-bottom:32px;
+}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.skill-item{padding:36px;border:0.5px solid var(--silver)}
+.skill-icon{font-size:24px;color:var(--mauve);margin-bottom:14px;display:block}
+.skill-name{font-size:15px;font-weight:500;color:var(--text);margin-bottom:10px}
+.skill-desc{font-size:12px;line-height:1.8;color:var(--text-soft)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:280px 1fr;gap:0;border:0.5px solid var(--silver)}
+.about-sidebar{padding:44px;border-right:0.5px solid var(--silver);background:#ede5ee}
+.about-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mauve);margin-bottom:6px}
+.about-val{font-size:13px;color:var(--text);margin-bottom:28px;line-height:1.6}
+.about-content{padding:44px}
+.about-content p{font-size:14px;line-height:1.9;color:var(--text-soft);margin-bottom:16px}
+
+/* CONTACT */
+.contact-section{
+  padding:80px 56px;
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border-bottom:0.5px solid var(--silver);
+}
+.contact-left{border-right:0.5px solid var(--silver);padding-right:56px}
+.contact-right{padding-left:56px;display:flex;flex-direction:column;gap:12px;justify-content:center}
+.contact-big{
+  font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:300;
+  color:var(--text);line-height:1.05;margin-bottom:20px;
+}
+.contact-big em{color:var(--mauve);font-style:italic}
+.contact-sub{font-size:13px;line-height:1.8;color:var(--text-soft)}
+.contact-link{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 20px;border:0.5px solid var(--silver);
+  text-decoration:none;color:var(--text);font-size:13px;
+  transition:all .2s;
+}
+.contact-link:hover{background:#ede5ee;border-color:var(--mauve)}
+.contact-link i{font-size:18px;color:var(--mauve);min-width:20px}
+.contact-link .link-arrow{margin-left:auto;font-size:14px;color:var(--silver-dark)}
+.contact-link:hover .link-arrow{color:var(--mauve)}
+
+/* SOCIAL BAR */
+.social-bar{
+  padding:32px 56px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:0.5px solid var(--silver);
+}
+.social-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--silver-dark)}
+.social-icons{display:flex;gap:0}
+.social-btn{
+  width:48px;height:48px;border:0.5px solid var(--silver);
+  display:flex;align-items:center;justify-content:center;
+  text-decoration:none;color:var(--text-soft);font-size:18px;
+  transition:all .2s;position:relative;
+}
+.social-btn:not(:first-child){margin-left:-0.5px}
+.social-btn:hover{background:var(--mauve);color:#fff;border-color:var(--mauve);z-index:1}
+.social-btn[title]:hover::after{
+  content:attr(title);
+  position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:var(--mauve-deep);color:#fff;
+  font-size:10px;letter-spacing:1px;text-transform:uppercase;
+  padding:5px 10px;white-space:nowrap;pointer-events:none;
+}
+
+/* FOOTER */
+footer{
+  padding:28px 56px;display:flex;justify-content:space-between;align-items:center;
+}
+footer p{font-size:11px;letter-spacing:1px;color:var(--silver-dark)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav{padding:20px 24px}
+  .hero{grid-template-columns:1fr}
+  .hero-image{display:none}
+  .hero-text{padding:56px 24px}
+  .hero-name{font-size:52px}
+  .section{padding:56px 24px}
+  .projects-grid{grid-template-columns:1fr}
+  .project-card.featured{grid-template-columns:1fr}
+  .project-featured-img{min-height:200px}
+  .skills-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .about-sidebar{border-right:none;border-bottom:0.5px solid var(--silver)}
+  .contact-section{grid-template-columns:1fr}
+  .contact-left{border-right:none;border-bottom:0.5px solid var(--silver);padding-right:0;padding-bottom:48px}
+  .contact-right{padding-left:0;padding-top:48px}
+  .social-bar{padding:24px;flex-direction:column;gap:20px;text-align:center}
+  footer{padding:20px 24px;flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Manya Patel</a>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="resume.pdf" download class="nav-resume">Resume</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Creative strategy &middot; Branding &middot; Marketing</p>
+    <h1 class="hero-name">Manya<br><em>Patel</em></h1>
+    <p class="hero-title">Creative Strategist &amp; Brand Builder</p>
+    <p class="hero-desc">Blending data-driven marketing with editorial intuition across fashion, retail technology, and luxury. I build brands people remember &mdash; from concept through campaign.</p>
+    <div class="hero-tags">
+      <span class="tag">Fashion</span>
+      <span class="tag">Luxury</span>
+      <span class="tag">Retail Tech</span>
+      <span class="tag">Brand Strategy</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#work" class="btn-primary">View work</a>
+      <a href="resume.pdf" download class="btn-ghost">Download resume</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <!-- Replace the placeholder below with your actual photo:
+         <img src="photo.jpg" alt="Manya Patel"> -->
+    <div class="hero-image-placeholder">
+      <i class="ti ti-user"></i>
+      <p>Replace with<br>your photo<br><code style="font-size:9px;font-family:monospace">&lt;img src="photo.jpg"&gt;</code></p>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section" id="work">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Selected <em>work</em></h2>
+  </div>
+
+  <div class="project-note">
+    <strong>Note for recruiters:</strong> Each project links to a dedicated case study page. Pages are currently being developed &mdash; check back soon or reach out directly for work samples.
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- FEATURED -->
+    <a href="pearlescent.html" class="project-card featured">
+      <div class="project-featured-img">
+        <div class="pearl-cluster">
+          <div class="pearl" style="width:130px;height:130px;top:25px;left:15px"></div>
+          <div class="pearl" style="width:80px;height:80px;top:50px;left:65px;background:rgba(255,255,255,0.16)"></div>
+          <div class="pearl" style="width:50px;height:50px;top:90px;left:28px;background:rgba(255,255,255,0.22)"></div>
+          <div class="pearl" style="width:28px;height:28px;top:32px;left:118px;background:rgba(255,255,255,0.28)"></div>
+          <div class="pearl" style="width:18px;height:18px;top:100px;left:118px;background:rgba(255,255,255,0.32)"></div>
+        </div>
+      </div>
+      <div class="project-featured-content">
+        <span class="project-badge">Centerpiece &middot; Founder story</span>
+        <h3 class="project-name">Pearlescent &mdash; Brand Case Study</h3>
+        <p class="project-desc">A deep-dive into the jewelry and apparel brand I founded and ran. Covers brand identity development, go-to-market strategy, community building, and the lessons learned over two years of operation.</p>
+        <div class="project-tags">
+          <span class="project-tag">Brand identity</span>
+          <span class="project-tag">E-commerce</span>
+          <span class="project-tag">Founder</span>
+          <span class="project-tag">Growth strategy</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- BRAND ANALYSIS -->
+    <a href="brand-analysis.html" class="project-card">
+      <span class="project-badge">Analysis &middot; Competitive intelligence</span>
+      <h3 class="project-name">Brand Analysis Project</h3>
+      <p class="project-desc">An in-depth breakdown of brand positioning, visual identity, and audience strategy for a key player in the fashion-tech space.</p>
+      <div class="project-tags">
+        <span class="project-tag">Research</span>
+        <span class="project-tag">Competitive analysis</span>
+        <span class="project-tag">Positioning</span>
+      </div>
+      <div class="project-arrow"><i class="ti ti-arrow-right"></i></div>
+    </a>
+
+    <!-- REBRAND -->
+    <a href="rebrand.html" class="project-card">
+      <span class="project-badge">Creative direction &middot; Visual identity</span>
+      <h3 class="project-name">Rebrand Concept</h3>
+      <p class="project-desc">A full rebrand proposal &mdash; new visual system, tone of voice, and channel strategy &mdash; developed for a luxury retail brand seeking a modern refresh.</p>
+      <div class="project-tags">
+        <span class="project-tag">Rebrand</span>
+        <span class="project-tag">Visual system</span>
+        <span class="project-tag">Luxury</span>
+      </div>
+      <div class="project-arrow"><i class="ti ti-arrow-right"></i></div>
+    </a>
+
+    <!-- AI TREND -->
+    <a href="ai-fashion.html" class="project-card" style="grid-column:span 2">
+      <span class="project-badge">Trend report &middot; Emerging technology</span>
+      <h3 class="project-name">AI in Fashion &mdash; Trend Forecast</h3>
+      <p class="project-desc">A forward-looking report on how artificial intelligence is reshaping styling, personalization, supply chain, and creative direction in the fashion industry. Covers near-term opportunities and strategic implications for brands.</p>
+      <div class="project-tags">
+        <span class="project-tag">Trend forecasting</span>
+        <span class="project-tag">AI &amp; technology</span>
+        <span class="project-tag">Fashion tech</span>
+        <span class="project-tag">Strategy</span>
+      </div>
+      <div class="project-arrow"><i class="ti ti-arrow-right"></i></div>
+    </a>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Core <em>capabilities</em></h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-item">
+      <i class="ti ti-chart-bar skill-icon"></i>
+      <p class="skill-name">Marketing</p>
+      <p class="skill-desc">Brand campaigns, content strategy, social media growth, performance marketing, and audience development across fashion and luxury verticals.</p>
+    </div>
+    <div class="skill-item">
+      <i class="ti ti-star skill-icon"></i>
+      <p class="skill-name">Business growth strategy</p>
+      <p class="skill-desc">Go-to-market planning, competitive positioning, revenue modeling, and scaling operations from founder-mode to scalable systems.</p>
+    </div>
+    <div class="skill-item">
+      <i class="ti ti-clipboard skill-icon"></i>
+      <p class="skill-name">Project management</p>
+      <p class="skill-desc">End-to-end campaign execution, cross-functional collaboration, timeline ownership, and stakeholder communication.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">About <em>me</em></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-sidebar">
+      <p class="about-label">Based in</p>
+      <p class="about-val">United States</p>
+      <p class="about-label">Industries</p>
+      <p class="about-val">Fashion &middot; Retail &middot; Luxury &middot; Technology</p>
+      <p class="about-label">Interests</p>
+      <p class="about-val">Marketing &middot; Branding &middot; Creative strategy</p>
+      <p class="about-label">Open to</p>
+      <p class="about-val">Full-time roles &middot; Freelance &middot; Collaborations</p>
+    </div>
+    <div class="about-content">
+      <p>I'm a creative strategist drawn to the intersection of culture, commerce, and storytelling &mdash; specifically how brands in fashion, retail technology, and luxury earn genuine attention and loyalty.</p>
+      <p>My hands-on experience founding and running Pearlescent, a jewelry and apparel brand, gave me an operator's perspective: I've built brand identities from scratch, managed end-to-end campaigns, and learned what it actually takes to grow a product people care about.</p>
+      <p>I'm energized by brand problems that require both analytical rigor and visual intuition &mdash; whether that's repositioning a heritage label, mapping an AI trend landscape, or crafting the story that makes a product feel inevitable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-left">
+    <p style="font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mauve-mid);margin-bottom:24px">Let's connect</p>
+    <h2 class="contact-big">Open to<br><em>opportunities</em></h2>
+    <p class="contact-sub">I'm actively looking for marketing and branding roles in fashion, retail, and luxury. If you're building something interesting, I'd love to talk.</p>
+  </div>
+  <div class="contact-right">
+    <a href="https://linkedin.com/in/manyapatel" target="_blank" class="contact-link">
+      <i class="ti ti-brand-linkedin"></i>
+      <span>LinkedIn &mdash; Manya Patel</span>
+      <i class="ti ti-arrow-right link-arrow"></i>
+    </a>
+    <a href="mailto:patelpmanya@gmail.com" class="contact-link">
+      <i class="ti ti-mail"></i>
+      <span>patelpmanya@gmail.com</span>
+      <i class="ti ti-arrow-right link-arrow"></i>
+    </a>
+    <a href="resume.pdf" download class="contact-link">
+      <i class="ti ti-download"></i>
+      <span>Download resume</span>
+      <i class="ti ti-arrow-right link-arrow"></i>
+    </a>
+  </div>
+</section>
+
+<!-- SOCIAL BAR -->
+<div class="social-bar">
+  <span class="social-label">Find me on</span>
+  <div class="social-icons">
+    <a href="https://instagram.com" target="_blank" class="social-btn" title="Instagram">
+      <i class="ti ti-brand-instagram"></i>
+    </a>
+    <a href="https://pinterest.com" target="_blank" class="social-btn" title="Pinterest">
+      <i class="ti ti-brand-pinterest"></i>
+    </a>
+    <a href="https://depop.com" target="_blank" class="social-btn" title="Depop">
+      <i class="ti ti-shopping-bag"></i>
+    </a>
+    <a href="https://shopmy.us" target="_blank" class="social-btn" title="ShopMy">
+      <i class="ti ti-tag"></i>
+    </a>
+    <a href="https://linkedin.com/in/manyapatel" target="_blank" class="social-btn" title="LinkedIn">
+      <i class="ti ti-brand-linkedin"></i>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <p>Manya Patel &mdash; Creative Strategy Portfolio</p>
+  <p>&copy; 2025</p>
+</footer>
+
+</body>
+</html>
