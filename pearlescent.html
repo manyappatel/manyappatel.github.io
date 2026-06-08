@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pearlescent — Brand Case Study · Manya Patel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --mauve:#736377;
+  --mauve-dark:#5a4d5e;
+  --mauve-deep:#3d3340;
+  --mauve-mid:#9a8a9e;
+  --silver:#c8c8c8;
+  --cream:#faf9f7;
+  --cream-warm:#f4f0ec;
+  --text:#1e1e1e;
+  --text-soft:#6a6a6a;
+  --gold:#b8a07a;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:var(--text);background:var(--cream);overflow-x:hidden}
+
+/* ─── NAV ─── */
+nav{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:22px 52px;border-bottom:0.5px solid var(--silver);
+  position:sticky;top:0;background:var(--cream);z-index:200;
+}
+.nav-back{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text-soft);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
+.nav-back:hover{color:var(--mauve)}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;letter-spacing:2px;color:var(--mauve)}
+.nav-tag{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--silver)}
+
+/* ─── LACE SPINE (runs full page left side) ─── */
+.lace-spine{
+  position:fixed;left:22px;top:0;bottom:0;width:18px;z-index:50;pointer-events:none;
+  display:flex;flex-direction:column;align-items:center;
+}
+.lace-line{
+  width:0.5px;flex:1;
+  background:linear-gradient(to bottom,
+    transparent 0%,
+    rgba(115,99,119,0.2) 8%,
+    rgba(115,99,119,0.25) 50%,
+    rgba(115,99,119,0.2) 92%,
+    transparent 100%);
+}
+/* Pearl drops scattered along the spine */
+.spine-pearl{
+  width:10px;height:14px;flex-shrink:0;
+  background:radial-gradient(ellipse at 38% 32%,#fff 0%,rgba(200,190,210,0.9) 40%,rgba(155,140,165,0.7) 100%);
+  border-radius:50% 50% 50% 50% / 40% 40% 60% 60%;
+  border:0.5px solid rgba(115,99,119,0.3);
+  box-shadow:0 1px 4px rgba(115,99,119,0.15),inset 0 1px 2px rgba(255,255,255,0.6);
+  margin:18px 0;
+}
+.spine-pearl.lg{width:13px;height:18px;margin:14px 0}
+.spine-pearl.sm{width:7px;height:10px;margin:22px 0}
+
+/* ─── LACE BOW SVG (decorative, surrounds title) ─── */
+.lace-bow-wrap{
+  display:flex;justify-content:center;align-items:flex-end;
+  padding-top:8px;margin-bottom:-2px;pointer-events:none;
+  position:relative;z-index:2;
+}
+
+/* ─── HERO ─── */
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:88vh;border-bottom:0.5px solid var(--silver);
+  position:relative;
+}
+.hero-left{
+  background:var(--mauve-deep);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:64px 52px 64px 64px;
+  border-right:0.5px solid rgba(255,255,255,0.06);
+  position:relative;overflow:hidden;
+}
+.hero-left::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 20% 80%,rgba(184,160,122,0.1) 0%,transparent 55%),
+             radial-gradient(ellipse at 80% 15%,rgba(115,99,119,0.35) 0%,transparent 60%);
+  pointer-events:none;
+}
+/* floating pearls in hero */
+.hero-pearl{
+  position:absolute;
+  background:radial-gradient(ellipse at 38% 32%,rgba(255,255,255,0.9) 0%,rgba(200,190,210,0.6) 45%,rgba(155,140,165,0.4) 100%);
+  border-radius:50% 50% 50% 50% / 40% 40% 60% 60%;
+  border:0.5px solid rgba(255,255,255,0.2);
+  pointer-events:none;
+}
+.hero-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';width:28px;height:0.5px;background:var(--gold);display:block}
+
+/* Lace bow sits above the title */
+.title-wrap{position:relative;margin-bottom:6px}
+.hero-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:76px;font-weight:300;line-height:0.95;
+  color:#fff;white-space:nowrap;
+}
+.hero-title em{font-style:italic;color:rgba(255,255,255,0.45);font-size:52px}
+.hero-desc{font-size:13px;line-height:1.85;color:rgba(255,255,255,0.5);max-width:340px;margin:20px 0 36px;font-weight:300}
+.hero-dates{display:flex;gap:28px}
+.hero-date-item p:first-child{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.hero-date-item p:last-child{font-size:13px;color:rgba(255,255,255,0.7)}
+
+.hero-right{
+  display:flex;flex-direction:column;
+  background:var(--cream-warm);
+}
+.hero-img-slot{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  border-bottom:0.5px solid var(--silver);padding:32px;
+  overflow:hidden;position:relative;
+}
+.hero-img-slot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.hero-img-placeholder{
+  width:100%;height:100%;min-height:340px;
+  border:0.5px solid var(--mauve-mid);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;color:var(--mauve-mid);
+}
+.hero-img-placeholder i{font-size:32px}
+.hero-img-placeholder p{font-size:9px;letter-spacing:2px;text-transform:uppercase;text-align:center;line-height:1.6}
+
+/* stats row */
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr)}
+.hstat{padding:20px 16px;border-right:0.5px solid var(--silver);border-top:0.5px solid var(--silver);text-align:center}
+.hstat:last-child{border-right:none}
+.hstat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--mauve);line-height:1}
+.hstat-label{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--text-soft);margin-top:4px;line-height:1.4}
+
+/* ─── SKIM SECTION ─── */
+.skim-section{
+  border-bottom:0.5px solid var(--silver);
+  padding:36px 52px 36px 64px;
+  background:var(--cream);
+}
+.skim-header{
+  display:flex;align-items:center;gap:12px;margin-bottom:20px;
+}
+.skim-header-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mauve);font-weight:500}
+.skim-arrow{
+  display:flex;align-items:center;gap:4px;
+  font-size:10px;letter-spacing:1px;color:var(--gold);
+}
+.skim-arrow i{font-size:14px;animation:bounceDown .9s ease-in-out infinite}
+@keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.skim-hint{
+  font-size:11px;color:var(--text-soft);font-style:italic;margin-left:auto;
+}
+.skim-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border:0.5px solid var(--silver);
+}
+.skim-item{
+  padding:18px 22px;border-right:0.5px solid var(--silver);
+  display:flex;gap:12px;align-items:flex-start;
+}
+.skim-item:last-child{border-right:none}
+.skim-dot{width:5px;height:7px;background:var(--mauve);border-radius:50% 50% 50% 50%/40% 40% 60% 60%;flex-shrink:0;margin-top:4px}
+.skim-item p{font-size:12px;line-height:1.6;color:var(--text)}
+.skim-item p strong{font-weight:500;color:var(--mauve-dark)}
+
+/* ─── SHARED SECTION STYLES ─── */
+.section{padding:56px 52px 56px 64px;border-bottom:0.5px solid var(--silver);position:relative}
+.section-eyebrow{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--mauve);margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.section-eyebrow::before{content:'';width:20px;height:0.5px;background:var(--mauve);display:block}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--text);line-height:1.05;margin-bottom:28px}
+.section-heading em{color:var(--mauve);font-style:italic}
+
+/* pearl accent beside headings */
+.pearl-accent{
+  display:inline-block;width:9px;height:13px;
+  background:radial-gradient(ellipse at 38% 32%,#fff 0%,rgba(200,190,210,0.9) 40%,rgba(155,140,165,0.7) 100%);
+  border-radius:50% 50% 50% 50%/40% 40% 60% 60%;
+  border:0.5px solid rgba(115,99,119,0.35);
+  box-shadow:0 1px 3px rgba(115,99,119,0.2);
+  vertical-align:middle;margin:0 6px 2px;
+}
+
+/* ─── STORY (condensed 2-col) ─── */
+.story-cols{display:grid;grid-template-columns:1fr 1fr;gap:0;border:0.5px solid var(--silver)}
+.story-col{padding:32px;border-right:0.5px solid var(--silver)}
+.story-col:last-child{border-right:none}
+.story-phase{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mauve);margin-bottom:10px;display:block}
+.story-col h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--text);margin-bottom:10px;line-height:1.2}
+.story-col p{font-size:12px;line-height:1.8;color:var(--text-soft)}
+
+/* ─── VALUES (compact strip) ─── */
+.values-strip{display:grid;grid-template-columns:repeat(4,1fr);border:0.5px solid var(--silver);margin-top:24px}
+.vblock{padding:24px 20px;border-right:0.5px solid var(--silver)}
+.vblock:last-child{border-right:none}
+.vblock-icon{font-size:18px;color:var(--mauve);margin-bottom:8px;display:block}
+.vblock-name{font-size:12px;font-weight:500;color:var(--text);margin-bottom:5px}
+.vblock-desc{font-size:11px;line-height:1.65;color:var(--text-soft)}
+
+/* ─── REBRAND (dark, compact) ─── */
+.rebrand-block{
+  background:var(--mauve-deep);padding:52px 52px 52px 64px;
+  border-bottom:0.5px solid var(--silver);position:relative;overflow:hidden;
+}
+.rebrand-block::after{
+  content:'';position:absolute;width:400px;height:400px;border-radius:50%;
+  border:0.5px solid rgba(255,255,255,0.04);top:-150px;right:-100px;pointer-events:none;
+}
+.rebrand-eyebrow{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:12px}
+.rebrand-eyebrow::before{content:'';width:20px;height:0.5px;background:var(--gold);display:block}
+.rebrand-heading{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#fff;line-height:1.05;margin-bottom:28px}
+.rebrand-heading em{font-style:italic;color:rgba(255,255,255,0.35)}
+.rebrand-cols{display:grid;grid-template-columns:1fr 1fr 1fr;border:0.5px solid rgba(255,255,255,0.08)}
+.rebrand-col{padding:26px;border-right:0.5px solid rgba(255,255,255,0.08)}
+.rebrand-col:last-child{border-right:none}
+.rebrand-phase{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:block}
+.rebrand-col h3{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:#fff;margin-bottom:8px}
+.rebrand-col ul{list-style:none;padding:0}
+.rebrand-col ul li{font-size:11px;line-height:1.7;color:rgba(255,255,255,0.5);padding-left:12px;position:relative}
+.rebrand-col ul li::before{content:'·';position:absolute;left:0;color:var(--gold)}
+
+/* ─── GALLERY — square grid ─── */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:4px;margin-bottom:12px;
+}
+.gitem{
+  background:var(--cream-warm);border:0.5px solid var(--silver);
+  aspect-ratio:1/1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;color:var(--mauve-mid);overflow:hidden;
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;text-align:center;padding:12px;
+}
+.gitem i{font-size:24px}
+.gitem img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-note{font-size:11px;color:var(--text-soft);display:flex;align-items:center;gap:6px}
+.gallery-note i{color:var(--mauve);font-size:14px}
+
+/* Pinterest pin example */
+.pin-example{
+  display:grid;grid-template-columns:200px 1fr;border:0.5px solid var(--silver);
+  margin-top:24px;
+}
+.pin-img{
+  background:var(--cream-warm);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;color:var(--mauve-mid);border-right:0.5px solid var(--silver);
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;text-align:center;padding:16px;
+  min-height:180px;
+}
+.pin-img i{font-size:22px}
+.pin-content{padding:24px}
+.pin-platform{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mauve);margin-bottom:6px}
+.pin-content h4{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--text);margin-bottom:6px}
+.pin-content p{font-size:12px;line-height:1.7;color:var(--text-soft)}
+.pin-note{font-size:11px;color:var(--text-soft);font-style:italic;margin-top:10px;padding-top:10px;border-top:0.5px solid var(--silver)}
+
+/* ─── METRICS (2x2 four boxes) ─── */
+.metrics-grid{display:grid;grid-template-columns:repeat(2,1fr);border:0.5px solid var(--silver)}
+.mcard{padding:28px 24px;border-right:0.5px solid var(--silver);border-bottom:0.5px solid var(--silver)}
+.mcard:nth-child(2n){border-right:none}
+.mcard:nth-child(3),.mcard:nth-child(4){border-bottom:none}
+.mcard:nth-child(1),.mcard:nth-child(2){border-bottom:0.5px solid var(--silver)}
+.mcard.no-bottom{border-bottom:none}
+.mcard-num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--mauve);line-height:1}
+.mcard-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-soft);margin:5px 0 8px}
+.mcard ul{list-style:none;padding:0}
+.mcard ul li{font-size:11px;line-height:1.7;color:var(--text-soft);padding-left:12px;position:relative}
+.mcard ul li::before{content:'·';position:absolute;left:0;color:var(--mauve)}
+
+/* instagram block */
+.ig-block{
+  display:grid;grid-template-columns:260px 1fr;
+  border:0.5px solid var(--silver);margin-top:24px;
+}
+.ig-screenshot{
+  background:var(--cream-warm);border-right:0.5px solid var(--silver);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;color:var(--mauve-mid);padding:24px;
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;text-align:center;min-height:200px;
+}
+.ig-screenshot i{font-size:28px}
+.ig-content{padding:28px}
+.ig-platform{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#C13584;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.ig-platform i{font-size:14px}
+.ig-content h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--text);margin-bottom:8px}
+.ig-content ul{list-style:none;padding:0;margin-bottom:12px}
+.ig-content ul li{font-size:12px;line-height:1.7;color:var(--text-soft);padding-left:12px;position:relative}
+.ig-content ul li::before{content:'·';position:absolute;left:0;color:var(--mauve)}
+.ig-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  color:var(--mauve);text-decoration:none;border:0.5px solid var(--mauve);
+  padding:8px 16px;transition:all .2s;
+}
+.ig-link:hover{background:var(--mauve);color:#fff}
+
+/* magazine block */
+.mag-block{
+  display:grid;grid-template-columns:1fr 1fr;
+  border:0.5px solid var(--silver);margin-top:12px;
+}
+.mag-img{
+  background:var(--cream-warm);border-right:0.5px solid var(--silver);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;color:var(--mauve-mid);padding:24px;
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;text-align:center;min-height:220px;
+}
+.mag-img i{font-size:28px}
+.mag-content{padding:28px;display:flex;flex-direction:column;justify-content:center}
+.mag-pub{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;font-style:italic;color:var(--mauve);margin-bottom:8px}
+.mag-content p{font-size:12px;line-height:1.8;color:var(--text-soft)}
+
+/* ─── HERO TRANSPARENT IMAGE OVERLAY ─── */
+.hero-overlay{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  opacity:0.18;mix-blend-mode:luminosity;
+}
+.hero-overlay img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+/* To add your image: upload to GitHub repo, then replace the placeholder div inside .hero-overlay with:
+   <img src="your-overlay-image.jpg"> */
+.hero-overlay-placeholder{
+  width:100%;height:100%;
+  border:0.5px dashed rgba(255,255,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,0.2);
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;text-align:center;
+}
+
+/* ─── SOLUCKY BLOCK (bigger image) ─── */
+.solucky-block{
+  display:grid;grid-template-columns:280px 1fr;border:0.5px solid var(--silver);
+}
+.solucky-img{
+  overflow:hidden;border-right:0.5px solid var(--silver);
+}
+.solucky-img .pearl-img-inner{height:100%;min-height:320px}
+.solucky-img img{width:100%;height:100%;object-fit:cover;display:block}
+.solucky-content{padding:28px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.solucky-pub{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;font-style:italic;color:var(--mauve)}
+.solucky-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);margin-bottom:4px}
+.solucky-content ul{list-style:none;padding:0}
+.solucky-content ul li{font-size:12px;line-height:1.7;color:var(--text-soft);padding-left:12px;position:relative}
+.solucky-content ul li::before{content:'·';position:absolute;left:0;color:var(--mauve)}
+
+/* ─── METRICS grid — 3 cols, clean ─── */
+.metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);border:0.5px solid var(--silver)}
+.mcard{padding:28px 24px;border-right:0.5px solid var(--silver);border-bottom:0.5px solid var(--silver)}
+.mcard:nth-child(3n){border-right:none}
+.mcard.no-bottom{border-bottom:none}
+.mcard-num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--mauve);line-height:1}
+.mcard-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-soft);margin:5px 0 8px}
+.mcard ul{list-style:none;padding:0}
+.mcard ul li{font-size:11px;line-height:1.7;color:var(--text-soft);padding-left:12px;position:relative}
+.mcard ul li::before{content:'·';position:absolute;left:0;color:var(--mauve)}
+
+/* ─── FOOTER — simple text links ─── */
+.case-footer{
+  padding:32px 52px 32px 64px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-link{display:flex;align-items:center;gap:8px;text-decoration:none;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
+.footer-link.back{color:var(--mauve)}
+.footer-link.next{color:var(--text-soft)}
+.footer-link.next:hover{color:var(--mauve)}
+.footer-center{font-size:10px;letter-spacing:1px;color:var(--silver)}
+
+/* ─── TAKEAWAYS ─── */
+.takeaways-list{display:grid;grid-template-columns:1fr 1fr;border:0.5px solid var(--silver);margin-top:0}
+.titem{padding:24px 28px;border-right:0.5px solid var(--silver);border-bottom:0.5px solid var(--silver);display:flex;gap:16px}
+.titem:nth-child(2n){border-right:none}
+.titem:nth-child(3),.titem:nth-child(4){border-bottom:none}
+.tnum{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:rgba(115,99,119,0.25);min-width:32px;line-height:1}
+.titem h4{font-size:12px;font-weight:500;color:var(--text);margin-bottom:5px}
+.titem p{font-size:11px;line-height:1.7;color:var(--text-soft)}
+
+/* ─── FOOTER ─── */
+.case-footer{
+  padding:32px 52px 32px 64px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-link{display:flex;align-items:center;gap:8px;text-decoration:none;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s}
+.footer-link.back{color:var(--mauve)}
+.footer-link.next{color:var(--text-soft)}
+.footer-link.next:hover{color:var(--mauve)}
+.footer-center{font-size:10px;letter-spacing:1px;color:var(--silver)}
+
+/* ─── UNIVERSAL PEARL IMAGE SWAP SYSTEM ─── */
+/* Every placeholder follows this pattern.
+   To replace: swap the .pearl-img-inner div with an <img> tag */
+.pearl-img-slot{
+  width:100%;aspect-ratio:3/4;overflow:hidden;
+  border:0.5px solid var(--silver);position:relative;
+}
+.pearl-img-inner{
+  width:100%;height:100%;
+  background:var(--cream-warm);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:8px;color:var(--mauve-mid);
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;text-align:center;padding:12px;
+}
+.pearl-img-inner i{font-size:22px}
+/* When you swap to a real img, it fills perfectly: */
+.pearl-img-slot img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ─── SOLUCKY BLOCK ─── */
+.solucky-block{
+  display:grid;grid-template-columns:180px 1fr;border:0.5px solid var(--silver);
+}
+.solucky-img{
+  aspect-ratio:3/4;overflow:hidden;border-right:0.5px solid var(--silver);
+}
+.solucky-img .pearl-img-inner{height:100%}
+.solucky-img img{width:100%;height:100%;object-fit:cover;display:block}
+.solucky-content{padding:24px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.solucky-pub{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;font-style:italic;color:var(--mauve)}
+.solucky-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text-soft);margin-bottom:4px}
+.solucky-content ul{list-style:none;padding:0}
+.solucky-content ul li{font-size:12px;line-height:1.7;color:var(--text-soft);padding-left:12px;position:relative}
+.solucky-content ul li::before{content:'·';position:absolute;left:0;color:var(--mauve)}
+
+/* ─── IG BLOCK — single square image ─── */
+.ig-block{
+  display:grid;grid-template-columns:1fr 1fr;border:0.5px solid var(--silver);
+}
+.ig-images{border-right:0.5px solid var(--silver);padding:16px;display:flex;align-items:center;justify-content:center}
+.ig-img-single{aspect-ratio:1/1;width:100%;overflow:hidden;border:0.5px solid var(--silver)}
+.ig-img-single .pearl-img-inner{height:100%;aspect-ratio:unset}
+.ig-img-single img{width:100%;height:100%;object-fit:cover;display:block}
+.ig-content{padding:28px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.ig-platform{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mauve);display:flex;align-items:center;gap:8px}
+.ig-content h4{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--text)}
+.ig-content ul{list-style:none;padding:0}
+.ig-content ul li{font-size:12px;line-height:1.7;color:var(--text-soft);padding-left:12px;position:relative}
+.ig-content ul li::before{content:'·';position:absolute;left:0;color:var(--mauve)}
+.ig-link{
+  display:inline-flex;align-items:center;gap:8px;margin-top:4px;
+  font-size:11px;letter-spacing:1px;text-transform:uppercase;
+  color:var(--mauve);text-decoration:none;border:0.5px solid var(--mauve);
+  padding:8px 16px;transition:all .2s;align-self:flex-start;
+}
+.ig-link:hover{background:var(--mauve);color:#fff}
+
+/* pin platform fix (remove pink) */
+.pin-platform{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mauve);margin-bottom:6px;display:flex;align-items:center;gap:6px}
+
+
+
+@media(max-width:860px){
+  nav,.section,.skim-section,.rebrand-block,.case-footer{padding-left:40px;padding-right:24px}
+  .lace-spine{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{min-height:70vh;padding:48px 24px}
+  .hero-title{font-size:52px}
+  .skim-grid{grid-template-columns:1fr}
+  .skim-item{border-right:none;border-bottom:0.5px solid var(--silver)}
+  .story-cols,.rebrand-cols,.values-strip,.takeaways-list{grid-template-columns:1fr}
+  .story-col,.rebrand-col,.vblock{border-right:none;border-bottom:0.5px solid rgba(255,255,255,0.08)}
+  .metrics-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gitem.tall{grid-row:span 1}
+  .ig-block,.mag-block,.pin-example{grid-template-columns:1fr}
+  .ig-screenshot,.mag-img,.pin-img{border-right:none;border-bottom:0.5px solid var(--silver)}
+}
+</style>
+</head>
+<body>
+
+
+
+<!-- Lace spine with drop pearls running full page -->
+<div class="lace-spine">
+  <div class="lace-line" style="height:120px;flex:none"></div>
+  <div class="spine-pearl lg"></div>
+  <div class="lace-line" style="height:60px;flex:none"></div>
+  <div class="spine-pearl sm"></div>
+  <div class="lace-line" style="height:80px;flex:none"></div>
+  <div class="spine-pearl"></div>
+  <div class="lace-line" style="height:100px;flex:none"></div>
+  <div class="spine-pearl sm"></div>
+  <div class="lace-line" style="height:70px;flex:none"></div>
+  <div class="spine-pearl lg"></div>
+  <div class="lace-line" style="height:90px;flex:none"></div>
+  <div class="spine-pearl sm"></div>
+  <div class="lace-line" style="height:110px;flex:none"></div>
+  <div class="spine-pearl"></div>
+  <div class="lace-line" style="height:60px;flex:none"></div>
+  <div class="spine-pearl lg"></div>
+  <div class="lace-line" style="height:80px;flex:none"></div>
+  <div class="spine-pearl sm"></div>
+  <div class="lace-line" style="height:100px;flex:none"></div>
+  <div class="spine-pearl"></div>
+  <div class="lace-line" style="height:70px;flex:none"></div>
+  <div class="spine-pearl lg"></div>
+  <div class="lace-line" style="height:90px;flex:none"></div>
+  <div class="spine-pearl sm"></div>
+  <div class="lace-line"></div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-back"><i class="ti ti-arrow-left"></i> Portfolio</a>
+  <span class="nav-brand">Pearlescent</span>
+  <span class="nav-tag">Brand Case Study</span>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<div class="hero">
+  <div class="hero-left">
+    <!-- Floating pearls in dark hero -->
+    <div class="hero-pearl" style="width:18px;height:26px;top:12%;right:18%;opacity:0.25"></div>
+    <div class="hero-pearl" style="width:10px;height:14px;top:30%;right:8%;opacity:0.18"></div>
+    <div class="hero-pearl" style="width:24px;height:34px;bottom:22%;right:24%;opacity:0.2"></div>
+    <div class="hero-pearl" style="width:8px;height:11px;bottom:35%;right:12%;opacity:0.22"></div>
+
+  <!-- TRANSPARENT IMAGE OVERLAY
+       Upload any image to your GitHub repo, then replace the div below with:
+       <img src="your-image.jpg">
+       Adjust opacity in CSS (.hero-overlay { opacity: 0.18 }) — lower = more transparent -->
+  <div class="hero-overlay">
+    <div class="hero-overlay-placeholder">overlay image here<br>set opacity in CSS</div>
+  </div>
+
+    <p class="hero-eyebrow">Brand case study · D2C · 2023–2025</p>
+
+    <div class="title-wrap">
+      <h1 class="hero-title">Pearlescent</h1>
+    </div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;font-style:italic;color:rgba(255,255,255,0.4);margin-bottom:16px">A brand built on identity</p>
+    <p class="hero-desc">A D2C handmade jewelry &amp; apparel brand I founded and ran — built on the belief that what you wear should be entirely, irreversibly yours. Every piece I made was one-of-one. Not a single design was ever remade.</p>
+    <div class="hero-dates">
+      <div class="hero-date-item"><p>Founded</p><p>Feb 2023</p></div>
+      <div class="hero-date-item"><p>Rebranded</p><p>2024</p></div>
+      <div class="hero-date-item"><p>Brand active</p><p>2023–2025</p></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-slot">
+      <!-- REPLACE with: <img src="pearlescent-brand.jpg" alt="Pearlescent brand image"> -->
+      <div class="hero-img-placeholder">
+        <i class="ti ti-photo"></i>
+        <p>Brand image<br>upload to GitHub<br>as pearlescent-brand.jpg</p>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <p class="hstat-num">400%</p>
+        <p class="hstat-label">YoY revenue growth</p>
+      </div>
+      <div class="hstat">
+        <p class="hstat-num">500k+</p>
+        <p class="hstat-label">Pinterest peak monthly views</p>
+      </div>
+      <div class="hstat">
+        <p class="hstat-num">60k+</p>
+        <p class="hstat-label">TikTok views</p>
+      </div>
+      <div class="hstat">
+        <p class="hstat-num">0</p>
+        <p class="hstat-label">Designs remade</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ QUICK SKIM ═══ -->
+<div class="skim-section">
+  <div class="skim-header">
+    <p class="skim-header-label">10-second overview</p>
+    <div class="skim-arrow">
+      <i class="ti ti-arrow-down"></i>
+      <span>Skim this first</span>
+    </div>
+    <p class="skim-hint">Scroll for the full story →</p>
+  </div>
+  <div class="skim-grid">
+    <div class="skim-item">
+      <div class="skim-dot"></div>
+      <p><strong>Founded &amp; ran</strong> a D2C jewelry &amp; apparel brand solo — product, ops, sales, and marketing all me</p>
+    </div>
+    <div class="skim-item">
+      <div class="skim-dot"></div>
+      <p><strong>$400 → $2,000+</strong> revenue Year 1 to Year 2 (~400% YoY growth) via Depop &amp; Bay Area markets</p>
+    </div>
+    <div class="skim-item">
+      <div class="skim-dot"></div>
+      <p><strong>Full rebrand I led</strong> — from hobby to a brand built on identity: the one-of-one policy that made every customer the only person in the world with that piece</p>
+    </div>
+    <div class="skim-item">
+      <div class="skim-dot"></div>
+      <p><strong>500k+ monthly Pinterest viewers</strong> &amp; 60k+ TikTok views built through editorial content I directed</p>
+    </div>
+    <div class="skim-item">
+      <div class="skim-dot"></div>
+      <p><strong>Ethically sourced &amp; upcycled</strong> materials — I prioritized values over margin at every decision point</p>
+    </div>
+    <div class="skim-item">
+      <div class="skim-dot"></div>
+      <p><strong>Solucky Magazine editorial</strong> placement — regional press I secured independently, no PR firm</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STORY ═══ -->
+<section class="section">
+  <p class="section-eyebrow">The story</p>
+  <h2 class="section-heading">From craft to <em>conviction</em></h2>
+  <div class="story-cols">
+    <div class="story-col">
+      <span class="story-phase">Phase 01 — Origin</span>
+      <h3>I started making things for people I loved</h3>
+      <p>I started Pearlescent in February 2023 making handmade jewelry and clothing for friends — no commercial intent, just creativity. But at Bay Area markets, strangers started buying. Then returning. Then bringing their friends. Word of mouth alone drove rapid early scaling.</p>
+    </div>
+    <div class="story-col">
+      <span class="story-phase">Phase 02 — The rebrand decision</span>
+      <h3>Scaling fast forced a hard question</h3>
+      <p>I could chase volume — remake popular designs, optimize for margin. Or I could ask what people actually felt when they wore my work. The answer: they felt like the only person in the world with that piece. That became the brand. I formalized a one-of-one policy, codified ethical sourcing, and rebuilt the visual identity around that core.</p>
+    </div>
+  </div>
+
+  <!-- Values strip -->
+  <div class="values-strip">
+    <div class="vblock">
+      <i class="ti ti-fingerprint vblock-icon"></i>
+      <p class="vblock-name">Identity over volume</p>
+      <p class="vblock-desc">Not a single design remade — ever.</p>
+    </div>
+    <div class="vblock">
+      <i class="ti ti-heart-handshake vblock-icon"></i>
+      <p class="vblock-name">Human connection first</p>
+      <p class="vblock-desc">Growth through word-of-mouth and market retention only.</p>
+    </div>
+    <div class="vblock">
+      <i class="ti ti-leaf vblock-icon"></i>
+      <p class="vblock-name">Ethics over profit</p>
+      <p class="vblock-desc">Ethically sourced, upcycled materials. Values before margin.</p>
+    </div>
+    <div class="vblock">
+      <i class="ti ti-palette vblock-icon"></i>
+      <p class="vblock-name">Craft as luxury</p>
+      <p class="vblock-desc">Handmade and unrepeatable. The craft was the luxury.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REBRAND ═══ -->
+<div class="rebrand-block">
+  <!-- Scattered pearls in dark section -->
+  <div class="pearl-float" style="width:12px;height:17px;top:18%;right:12%;opacity:0.3"></div>
+  <div class="pearl-float" style="width:8px;height:11px;bottom:25%;right:20%;opacity:0.25"></div>
+  <div class="pearl-float" style="width:16px;height:22px;top:40%;right:6%;opacity:0.2"></div>
+  <p class="rebrand-eyebrow">The rebrand</p>
+  <h2 class="rebrand-heading">Choosing what I refused <em>to become</em></h2>
+  <div class="rebrand-cols">
+    <div class="rebrand-col">
+      <span class="rebrand-phase">Before</span>
+      <h3>A creative side project</h3>
+      <ul>
+        <li>Making pieces for friends</li>
+        <li>No defined brand values</li>
+        <li>No deliberate positioning</li>
+        <li>Product-first, not story-first</li>
+      </ul>
+    </div>
+    <div class="rebrand-col">
+      <span class="rebrand-phase">The inflection point</span>
+      <h3>Rapid word-of-mouth growth</h3>
+      <ul>
+        <li>Market customers brought communities</li>
+        <li>Revenue grew 400% YoY</li>
+        <li>I had to decide what this was before the market decided for me</li>
+        <li>Identity became the core product promise</li>
+      </ul>
+    </div>
+    <div class="rebrand-col">
+      <span class="rebrand-phase">After</span>
+      <h3>A brand with conviction</h3>
+      <ul>
+        <li>One-of-one policy: formalized</li>
+        <li>Ethical sourcing: codified</li>
+        <li>Editorial content: directed in-house</li>
+        <li>Solucky Magazine: secured independently</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ WORK / GALLERY ═══ -->
+<section class="section">
+  <p class="section-eyebrow">The work</p>
+  <h2 class="section-heading">Pieces &amp; <em>imagery</em></h2>
+  <div class="gallery-grid">
+    <!-- To insert your own image, replace the entire <div class="gitem">...</div> with:
+         <div class="gitem"><img src="your-photo.jpg"></div>
+         Name your files and upload them to your GitHub repo folder. -->
+    <div class="gitem"><i class="ti ti-photo"></i><span>Piece 01</span></div>
+    <div class="gitem"><i class="ti ti-photo"></i><span>Piece 02</span></div>
+    <div class="gitem"><i class="ti ti-photo"></i><span>Piece 03</span></div>
+    <div class="gitem"><i class="ti ti-photo"></i><span>Piece 04</span></div>
+    <div class="gitem"><i class="ti ti-photo"></i><span>Piece 05</span></div>
+    <div class="gitem"><i class="ti ti-photo"></i><span>Lifestyle / editorial</span></div>
+  </div>
+  <p class="gallery-note" style="margin-top:10px"><i class="ti ti-info-circle"></i> Replace each placeholder with <code style="font-size:10px;background:#f0eaf1;padding:2px 6px;font-family:monospace">&lt;img src="file.jpg" style="width:100%;height:100%;object-fit:cover"&gt;</code></p>
+
+  <!-- Instagram -->
+  <div class="ig-block" style="margin-top:28px">
+    <div class="ig-images">
+      <!-- REPLACE the pearl-img-inner div with: <img src="ig-screenshot.jpg" style="width:100%;height:100%;object-fit:cover"> -->
+      <div class="ig-img-single">
+        <div class="pearl-img-inner"><i class="ti ti-brand-instagram"></i><span>IG screenshot<br>ig-screenshot.jpg<br>square image</span></div>
+      </div>
+    </div>
+    <div class="ig-content">
+      <p class="ig-platform"><i class="ti ti-brand-instagram"></i> Instagram — Pearlescent</p>
+      <h4>Social media I built from the ground up</h4>
+      <ul>
+        <li>Directed and produced all lifestyle &amp; product photography</li>
+        <li>Built audience through organic editorial content — no paid promotion</li>
+        <li>25% estimated follower engagement increase through campaign strategy</li>
+        <li>Cross-posted strategy across TikTok, Instagram, and Pinterest</li>
+      </ul>
+      <a href="https://instagram.com/YOUR_HANDLE" target="_blank" class="ig-link">
+        <i class="ti ti-brand-instagram"></i> View Instagram
+      </a>
+    </div>
+  </div>
+
+  <!-- Pinterest note -->
+  <div class="pin-example">
+    <div class="pin-img">
+      <!-- REPLACE with: <img src="pinterest-pin.jpg" style="width:100%;height:100%;object-fit:cover"> -->
+      <i class="ti ti-brand-pinterest"></i>
+      <span>Best pin example<br>pinterest-pin.jpg</span>
+    </div>
+    <div class="pin-content">
+      <p class="pin-platform"><i class="ti ti-brand-pinterest" style="font-size:13px"></i> Pinterest</p>
+      <h4>Peaked at 500k+ monthly viewers</h4>
+      <p>I grew my Pinterest to 500k+ monthly viewers at its peak — combining Pearlescent brand content with personal editorial curation under one unified visual identity. Currently sitting at 45k monthly viewers as I rebuild post-brand.</p>
+      <p class="pin-note">Note: These figures span my personal and brand Pinterest, which I run as a single cohesive visual strategy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ METRICS ═══ -->
+<section class="section">
+  <!-- Scattered pearls -->
+  <div class="pearl-float" style="width:10px;height:14px;top:12%;right:8%;opacity:0.5"></div>
+  <div class="pearl-float" style="width:6px;height:9px;top:35%;right:14%;opacity:0.4"></div>
+  <div class="pearl-float" style="width:14px;height:20px;bottom:20%;right:5%;opacity:0.45"></div>
+  <p class="section-eyebrow">By the numbers</p>
+  <h2 class="section-heading">Results <em>&amp; reach</em></h2>
+  <div class="metrics-grid">
+    <div class="mcard">
+      <p class="mcard-num">~400%</p>
+      <p class="mcard-label">YoY revenue growth</p>
+      <ul>
+        <li>$400 Year 1 → $2,000+ Year 2</li>
+        <li>Sold via Depop &amp; Bay Area markets</li>
+        <li>Zero paid advertising, ever</li>
+      </ul>
+    </div>
+    <div class="mcard">
+      <p class="mcard-num">60k+</p>
+      <p class="mcard-label">TikTok views</p>
+      <ul>
+        <li>Produced &amp; directed all content myself</li>
+        <li>Lifestyle and product storytelling</li>
+        <li>Drove targeted traffic to Depop</li>
+      </ul>
+    </div>
+    <div class="mcard">
+      <p class="mcard-num">0</p>
+      <p class="mcard-label">Designs ever remade</p>
+      <ul>
+        <li>Every piece sold is one-of-one</li>
+        <li>Scarcity as brand strategy</li>
+        <li>Identity as the core product</li>
+      </ul>
+    </div>
+    <div class="mcard">
+      <p class="mcard-num">+25%</p>
+      <p class="mcard-label">Estimated engagement lift</p>
+      <ul>
+        <li>Across Instagram, TikTok &amp; Pinterest</li>
+        <li>Through organic campaign strategy</li>
+        <li>Community-first content approach</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Solucky Magazine — image left, text right -->
+  <div class="solucky-block" style="margin-top:16px">
+    <div class="solucky-img">
+      <!-- REPLACE inner div with: <img src="solucky-magazine.jpg" style="width:100%;height:100%;object-fit:cover"> -->
+      <div class="pearl-img-inner"><i class="ti ti-article"></i><span>Magazine excerpt<br>solucky-magazine.jpg<br>3:4 image</span></div>
+    </div>
+    <div class="solucky-content">
+      <p class="solucky-pub">Solucky Magazine</p>
+      <p class="solucky-tag">Editorial &amp; press placement</p>
+      <ul>
+        <li>Secured independently — no PR agency</li>
+        <li>Product features &amp; editorial placement</li>
+        <li>Expanded regional Bay Area brand visibility</li>
+        <li>Drove targeted traffic to digital sales channels</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TAKEAWAYS ═══ -->
+<section class="section">
+  <p class="section-eyebrow">What I learned</p>
+  <h2 class="section-heading">Strategic <em>takeaways</em></h2>
+  <div class="takeaways-list">
+    <div class="titem">
+      <span class="tnum">01</span>
+      <div>
+        <h4>Constraint is a branding tool</h4>
+        <p>The one-of-one policy created scarcity, which built desire. Limiting supply made customers feel special — and act quickly.</p>
+      </div>
+    </div>
+    <div class="titem">
+      <span class="tnum">02</span>
+      <div>
+        <h4>Retention compounds faster than acquisition</h4>
+        <p>My highest-growth channel was customers returning and bringing their communities. Word-of-mouth is slower to start and harder to stop.</p>
+      </div>
+    </div>
+    <div class="titem">
+      <span class="tnum">03</span>
+      <div>
+        <h4>Define your values before scale arrives</h4>
+        <p>Rapid growth forced the rebrand. The lesson: pressure doesn't leave time for nuance. Decide what you stand for early.</p>
+      </div>
+    </div>
+    <div class="titem">
+      <span class="tnum">04</span>
+      <div>
+        <h4>Visual consistency matters at every stage</h4>
+        <p>500k+ Pinterest viewers came from treating photography and visual identity as seriously as the product itself — even as a solo founder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="case-footer">
+  <a href="index.html" class="footer-link back"><i class="ti ti-arrow-left"></i> All work</a>
+  <span class="footer-center">Pearlescent · Manya Patel</span>
+  <a href="brand-analysis.html" class="footer-link next">Next project <i class="ti ti-arrow-right"></i></a>
+</footer>
+
+</body>
+</html>
